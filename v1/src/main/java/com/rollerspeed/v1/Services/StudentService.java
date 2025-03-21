@@ -10,4 +10,9 @@ import com.rollerspeed.v1.Model.Student;
 public interface StudentService {
 
     List<Student> listar();
+    void save(Student student);
+    void delete(Long id);
+    void update(Student student);
+    Student get(Long id);
+    
 }

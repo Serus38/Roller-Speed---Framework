@@ -65,4 +65,9 @@ public class IndexController {
         return "eventos"; // Devuelve la vista "eventos.html"
     }
 
+    @GetMapping("/nuevostudents")
+    public String inscribirstudents(Model model) {
+        model.addAttribute("title", "Inscribirse - RollerSpeed");
+        return "nuevostudents"; // Devuelve la vista "inscribirstudents.html"
+    }
 }   

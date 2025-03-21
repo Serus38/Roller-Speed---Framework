@@ -17,8 +17,29 @@ public class StudentServiceImp implements StudentService {
     }
 
     @Override
+    public void delete(Long id) {
+        studentRepository.deleteById(id);
+    }
+
+    @Override
+    public void save(Student student) {
+        studentRepository.save(student);
+    }
+
+    @Override
     public List<Student> listar() {
         return (List<Student>) studentRepository.findAll();
     }
+
+    @Override
+    public void update(Student student) {
+        studentRepository.save(student);
+    }
+
+    @Override
+    public Student get(Long id) {
+        return studentRepository.findById(id).get();
+    }
+
     
 }

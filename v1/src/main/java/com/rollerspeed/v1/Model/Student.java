@@ -24,6 +24,15 @@ public class Student {
     @Column(nullable = false, unique = true, length = 50)
     private String name;
 
+    @Column(nullable = false, unique = true, length = 50)
+    private String email;
+
+    @Column(nullable = false, unique = true, length = 50)
+    private String lastname;
+
+    @Column(nullable = false, unique = true, length = 50)
+    private String age;
+
     @Column(nullable = false, length = 40)
     private String password;
 }
