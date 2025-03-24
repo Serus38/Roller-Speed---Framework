@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Valores - RollerSpeed</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:insert="fragments/navbar.html"></div>
+    <h1>Valores</h1>
+    <ul>
+        <li th:each="value : ${values}" th:text="${value}">Valor</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Eventos - RollerSpeed</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:insert="fragments/navbar.html"></div>
+    <h1>Eventos</h1>
+    <ul>
+        <li th:each="event : ${events}" th:text="${event}">Evento</li>
+    </ul>
+</body>
+</html>
