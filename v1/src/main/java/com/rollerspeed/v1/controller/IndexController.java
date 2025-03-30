@@ -70,4 +70,10 @@ public class IndexController {
         model.addAttribute("title", "Inscribirse - RollerSpeed");
         return "nuevostudents"; // Devuelve la vista "inscribirstudents.html"
     }
+
+    @GetMapping("/login")  
+    public String login(Model model) {
+        model.addAttribute("title", "Iniciar sesión - RollerSpeed");
+        return "login"; // Devuelve la vista "login.html"
+    }
 }   

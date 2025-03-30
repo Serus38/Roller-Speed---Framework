@@ -6,39 +6,110 @@ body {
     background-color: #f4f4f4;
     color: #333;
     text-align: center;
+    background-size: cover;
 }
 
-/* Navbar */
+/* Estilos del navbar */
 nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     background-color: #007bff;
-    padding: 15px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    color: white;
 }
 
-nav a {
+/* Título de la barra de navegación */
+.navbar-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Botón de hamburguesa */
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Menú horizontal */
+.menu-horizontal {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-horizontal > li {
+    position: relative;
+}
+
+.menu-horizontal > li > a {
+    display: block;
+    padding: 10px 15px;
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    margin: 0 15px;
-    font-weight: bold;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.menu-horizontal > li:hover {
+    background-color: rgb(169, 27, 27);
+}
+
+/* Menú vertical (submenús) */
+.menu-vertical {
+    position: absolute;
+    display: none;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    top: 100%; /* Asegura que el menú vertical aparezca debajo del elemento padre */
+    left: 0;
+    width: 200px;
+}
+
+.menu-horizontal li:hover .menu-vertical {
+    display: block; /* Muestra el menú vertical al pasar el cursor */
+}
+
+.menu-vertical li a {
+    display: block;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.menu-vertical li:hover {
+    background-color: black;
+}
+
+/** Estilos del formulario */
+form {
+    background-color: rgb(176, 203, 251);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin: auto;
 }
 
 /* Contenido */
-h1 {
+h1.info {
     color: #007bff;
     margin-top: 20px;
+    text-align: center;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
+li.info {
     background-color: white;
     margin: 10px auto;
     padding: 15px;
@@ -47,9 +118,63 @@ li {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+p {
+    text-align: center;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Cambia el diseño del navbar a vertical */
+        align-items: flex-start;
+    }
+
+    .menu-horizontal {
+        display: none;
+        flex-direction: column; /* Cambia el menú horizontal a vertical */
+        width: 100%;
+    }
+
+    .menu-toggle:checked + .menu-icon + .menu-horizontal {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu-horizontal > li {
+        text-align: left;
+    }
+
+    .menu-horizontal > li > a {
+        padding: 10px 15px;
+    }
+
+    .menu-vertical {
+        position: static; /* Cambia la posición del menú vertical en pantallas pequeñas */
+        width: 100%; /* Asegura que el menú vertical ocupe todo el ancho */
+    }
+
+    .menu-vertical li a {
+        padding: 10px 15px;
+    }
+
+    form {
+        width: 90%; /* Reduce el ancho del formulario en pantallas pequeñas */
+    }
+
+    h1.info {
+        font-size: 24px; /* Ajusta el tamaño del título */
+    }
+
+    li.info {
+        width: 90%; /* Ajusta el ancho de los elementos de la lista */
+    }
 }

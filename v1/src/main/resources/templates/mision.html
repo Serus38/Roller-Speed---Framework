@@ -3,10 +3,12 @@
 <head>
     <title th:text="${title}">Misión - RollerSpeed</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 <body>
     <div th:insert="fragments/navbar.html"></div>
-    <h1>Misión</h1>
+    <h1 class="info">Misión</h1>
     <p th:text="${content}">Nuestra misión es promover el patinaje como un estilo de vida saludable y divertido.</p>
 </body>
 </html>
