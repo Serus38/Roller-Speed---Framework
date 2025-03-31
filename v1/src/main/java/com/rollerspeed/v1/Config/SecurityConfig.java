@@ -15,7 +15,7 @@ public class SecurityConfig {
         return httpSecurity
                 .authorizeRequests()
                 .requestMatchers("/v1/index/", "/swagger-ui/index.html", "/swagger-ui.html").permitAll()
-                .requestMatchers("/students/listar").authenticated()
+                .requestMatchers("/students/listar", "/teachers/listar", "/teachers/nuevo").authenticated()
             .and()
             .formLogin().permitAll()
             .and()
