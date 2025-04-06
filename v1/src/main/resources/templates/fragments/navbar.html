@@ -9,6 +9,9 @@
         <!-- Título de la barra de navegación -->
         <div class="navbar-title">
             <span>Roller Speed</span>
+            <button id="btn-L-D" class="mode-toggle">
+                <span id="mode-icon">🌞</span>
+            </button>
         </div>
 
         <!-- Botón de hamburguesa -->
@@ -40,8 +43,36 @@
                 </ul>
             </li>
         </ul>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar...">
+            <button>🔍</button>
+        </div>
     </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Inicializar el modo de color desde localStorage
+        const savedMode = localStorage.getItem('colorMode') || 'light';
+        document.body.classList.add(savedMode);
+        const modeButton = document.getElementById('btn-L-D');
+        const modeIcon = document.getElementById('mode-icon');
+
+        // Configurar el ícono inicial según el modo guardado
+        modeIcon.textContent = savedMode === 'dark' ? '🌙' : '🌞';
+
+        // Cambiar entre modo claro y oscuro
+        modeButton.addEventListener('click', function () {
+            const currentMode = document.body.classList.contains('dark') ? 'dark' : 'light';
+            const newMode = currentMode === 'dark' ? 'light' : 'dark';
+
+            // Actualizar el modo en el DOM y en localStorage
+            document.body.classList.remove(currentMode);
+            document.body.classList.add(newMode);
+            localStorage.setItem('colorMode', newMode);
+
+            // Cambiar el ícono según el nuevo modo
+            modeIcon.textContent = newMode === 'dark' ? '🌙' : '🌞';
+        });
+    </script>
 </body>
 </html>
